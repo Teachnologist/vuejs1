@@ -31,6 +31,12 @@
       <!-- implement the css for this at the bottom of the 'styles.css'
            you will see a comment there -->
       <!-- YOUR MARKUP HERE -->
+      <transition name="fade">
+      <div v-if="gameOver" class="modal">
+      <h1>Game Over!</h1>
+      <a class="button button-black" @click="newGame()">Try Again</a>
+</div>
+</transition>
     </div>
   `
 

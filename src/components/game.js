@@ -7,9 +7,9 @@
         <!-- read: https://vuejs.org/v2/guide/transitions.html#List-Transitions -->
         <!-- implement the css for this at the bottom of the 'styles.css'
              you will see a comment there -->
-        <div tag="div" class="board">
+             <transition-group name="tile" tag="div" class="board">
           <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
-        </div>
+        </transition-group>
         <div class="board shadow-board">
           <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
         </div>
@@ -60,7 +60,7 @@
       },
 
       setupBoard() {
-        this.newGame()
+        this.newGame(),
         this.registerControl()
       },
 
