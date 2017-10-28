@@ -1,4 +1,5 @@
 ((() => {
+<<<<<<< HEAD
     const html = `
     <div class="game">
    
@@ -14,12 +15,27 @@
           <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
         </transition-group>
        <div class="board shadow-board">
+=======
+
+  // TODO 2: register event handle
+  const html = `
+    <div class="game">
+      <!-- TODO 2: register event handler for new-game() event -->
+      <!-- read: https://vuejs.org/v2/guide/components.html#Using-v-on-with-Custom-Events -->
+      <game-menu></game-menu>
+      <div class="game-container">
+        <div class="board">
+          <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
+        </div>
+        <div class="board shadow-board">
+>>>>>>> a6e0f6ba9bc71c7e5511457e76b709f935786af7
           <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
         </div>-->
       </div>
     </div>
   `
 
+<<<<<<< HEAD
     Vue.component("game", {
         template: html,
         mixins: [window.app.mixins.control],
@@ -29,6 +45,32 @@
                 gameOver: false,
             }
         },
+=======
+  Vue.component("game", {
+    template: html,
+    data () {
+      return {
+        board: [],
+      }
+    },
+
+    mounted() {
+      this.setupBoard()
+    },
+
+    methods: {
+
+      setupBoard() {
+        this.newGame()
+      },
+
+      seedTwo() {
+        let getRandomItem = () => {
+          let randomIndex = Math.floor(Math.random() * this.board.length)
+
+          return this.board[randomIndex]
+        }
+>>>>>>> a6e0f6ba9bc71c7e5511457e76b709f935786af7
 
         watch: {
             allTilesFull(boardFull, _) {
@@ -42,11 +84,15 @@
             this.setupBoard()
         },
 
+<<<<<<< HEAD
         computed: {
             allTilesFull() {
                 return !this.board.filter(tile => tile.value === 0).length > 0
             },
         },
+=======
+        randomItem.value = 2
+>>>>>>> a6e0f6ba9bc71c7e5511457e76b709f935786af7
 
         methods: {
             firstItem(){
