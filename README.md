@@ -1,3 +1,19 @@
+#Vue JS setup for JetBrains IDEA
+
+###Go to IntelliJIDEA > Preferences
+* In Languages and Frameworks, click on Javascript. Set the type to EMCA 6.
+* Install related Javascript Plugins
+    *Vue.js
+    *Javascript Support
+    
+* In index.html declare dependencies
+    
+
+
+
+
+
+
 # Vuejs Scaffold (Plain Javascript)
 
 ## Assets
