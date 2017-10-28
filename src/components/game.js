@@ -1,72 +1,35 @@
 ((() => {
   const html = `
     <div class="game">
-      <game-menu @new-game="newGame()" :gameOver="gameOver"></game-menu>
       <div class="game-container">
-        <transition-group name="tile" tag="div" class="board">
-          <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
-        </transition-group>
-        <div class="board shadow-board">
-          <div v-for="n in board.length" :key="n" class="tile shadow-tile"></div>
-        </div>
+        <!-- TODO 5 add board with v-for binding -->
+        <!-- read: https://vuejs.org/v2/guide/list.html#Mapping-an-Array-to-Elements-with-v-for -->
+
+        <!-- EXTRA add shadow board for UX-->
+
       </div>
     </div>
   `
 
   Vue.component("game", {
     template: html,
-    mixins: [window.app.mixins.control],
     data () {
-      return {
-        board: [],
-        mergeAnimationsList: [],
-        slideAnimationsList: [],
-        mergeGameStateList: [],
-        slideGameStateList: [],
-        gameOver: false,
-      }
-    },
-
-    watch: {
-      allTilesFull(boardFull, _) {
-        if (boardFull) {
-          this.checkGameState()
-        }
-      },
+      // TODO 1: 
+      // https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function
     },
 
     mounted() {
-      this.setupBoard()
-    },
-
-    computed: {
-      allTilesFull() {
-        return !this.board.filter(tile => tile.value === 0).length > 0
-      },
+      // TODO 3: call the method to setup board
+      // read: https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
     },
 
     methods: {
 
-      checkGameState() {
-        this.moveUp("gamestate")
-        this.moveDown("gamestate")
-        this.moveLeft("gamestate")
-        this.moveRight("gamestate")
-        if (!this.mergeGameStateList.length > 0 || !this.slideGameStateList.length > 0) {
-          this.gameOver = true
-        }
-        this.mergeGameStateList = []
-        this.slideGameStateList = []
-      },
-
       setupBoard() {
         this.newGame()
-        this.registerControl()
       },
 
       seedTwo() {
-        if (this.allTilesFull) { return }
-
         let getRandomItem = () => {
           let randomIndex = Math.floor(Math.random() * this.board.length)
 
@@ -79,15 +42,14 @@
           randomItem = getRandomItem()
         }
 
-        randomItem.value = 2
+        // TODO 2: set value of the randomItem to 2
+        // read: https://vuejs.org/v2/guide/events.html#Methods-in-Inline-Handlers
       },
 
       newGame() {
         this.resetBoard()
-        this.resetScore()
         this.seedTwo()
         this.seedTwo()
-        this.gameOver = false
       },
 
       resetBoard() {
@@ -99,10 +61,6 @@
             }
           })
       },
-
-      resetScore() {
-        this.$store.dispatch("resetScore")
-      }
     }
   })
 }))()
