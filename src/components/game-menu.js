@@ -24,7 +24,7 @@
           <a class="button button-black" @click="newGame()">Try again</a>
         </div>
       </transition>
-    </div></div></div>
+    </div>
   `
 
   Vue.component("game-menu", {
