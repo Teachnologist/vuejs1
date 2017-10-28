@@ -5,7 +5,7 @@
     <div class="game">
       <!-- TODO 2: register event handler for new-game() event -->
       <!-- read: https://vuejs.org/v2/guide/components.html#Using-v-on-with-Custom-Events -->
-      <game-menu></game-menu>
+      <game-menu v-on:new-game="newGame()"></game-menu>
       <div class="game-container">
         <div class="board">
           <tile v-for="tile in board" :tile="tile" :key="tile.id"></tile>
@@ -19,6 +19,7 @@
 
   Vue.component("game", {
     template: html,
+    mixins:[window.app.mixins.control],
     data () {
       return {
         board: [],
@@ -32,7 +33,8 @@
     methods: {
 
       setupBoard() {
-        this.newGame()
+        this.newGame(),
+          this.registerControl()
       },
 
       seedTwo() {

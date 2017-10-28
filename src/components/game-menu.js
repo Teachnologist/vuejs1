@@ -27,7 +27,8 @@
 
     methods: {
       newGame() {
-          alert("new Game Click");
+          alert("clicked!");
+          this.$emit("new-game");
         // TODO 2: emit custom event
         // https://vuejs.org/v2/guide/components.html#Using-v-on-with-Custom-Event
       }
