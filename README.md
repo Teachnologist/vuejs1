@@ -6,6 +6,8 @@
     *Vue.js
     *Javascript Support
     
+* there is a VueJS Chrome extension to allow for debugging from vuejs detected apps. Can be inconsistent with IntelliJ but cool when it works.    
+    
 * In index.html declare dependencies
     
 
