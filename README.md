@@ -1,3 +1,21 @@
+# Vuejs Setup for Jetbrains IDEA
+
+##Plugins to install
+* Go to the App's About Menu and select Preferences
+
+
+
+# Dev Notes
+##Things noticed
+* Can declare specific types in each component with Vue.component.props.component.type;
+    * seems browser will run the function if it is possible, but throws warning
+
+
+
+
+
+
+
 # Vuejs Scaffold (Plain Javascript)
 
 ## Assets
