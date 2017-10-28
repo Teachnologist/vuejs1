@@ -30,12 +30,7 @@
   Vue.component("game-menu", {
     template: html,
 
-    props: {
-      gameOver: {
-        type: Boolean,
-        required: true,
-      }
-    },
+
 
     data() {
       return {
@@ -83,7 +78,14 @@
     computed: {
       score() {
         return this.$store.state.score
-      }
+      },
+
+            gameOver() {
+                if(this.$store.state.score > 1000){
+                  alert("over 200");
+                  return true;
+                }
+            }
     },
 
     methods: {

@@ -51,6 +51,14 @@
         if (!this.mergeGameStateList.length > 0 || !this.slideGameStateList.length > 0) {
           this.gameOver = true
         }
+
+        console.log("checkGameState");
+        console.dir(this);
+
+          if (!this.mergeGameStateList.length > 0 || !this.slideGameStateList.length > 0) {
+              this.gameOver = true
+          }
+
         this.mergeGameStateList = []
         this.slideGameStateList = []
       },
@@ -98,6 +106,7 @@
       },
 
       resetScore() {
+        this.$store.dispatch("resetScore",789);
         // TODO 1: add dispatch call to store to resetScore
         // read: https://vuex.vuejs.org/en/actions.html
       }
